@@ -309,6 +309,7 @@ export function ContratosPage() {
                     Facturas
                   </div>
                 </TableHead>
+                <TableHead>Vigencia</TableHead>
                 <TableHead>Suplementos</TableHead>
                 <TableHead className="text-right">Acciones</TableHead>
               </TableRow>
@@ -364,6 +365,22 @@ export function ContratosPage() {
                         <Receipt className="h-3.5 w-3.5" />
                         Ver
                       </Button>
+                    </TableCell>
+                    <TableCell>
+                      {(() => {
+                        const vigencia = item.vigencia;
+                        const vencida = vigencia && new Date(vigencia) < new Date(hoy);
+                        return (
+                          <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-sm font-medium ${
+                            vencida
+                              ? 'bg-red-100 text-red-700'
+                              : 'bg-gray-100 text-gray-700'
+                          }`}>
+                            <Calendar className="h-3 w-3" />
+                            {vigencia || 'N/A'}
+                          </span>
+                        );
+                      })()}
                     </TableCell>
                     <TableCell onClick={(e) => e.stopPropagation()}>
                       <Button
