@@ -19,14 +19,16 @@ export function Modal({ isOpen, onClose, children, className = '' }: ModalProps)
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className={`relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-scale-in ${className}`}>
+      <div className={`relative w-full max-w-lg bg-white rounded-2xl shadow-2xl animate-scale-in max-h-[90vh] flex flex-col ${className}`}>
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-1 text-gray-400 hover:text-gray-600 transition-colors rounded-full hover:bg-slate-50"
+          className="absolute top-4 right-4 p-1 text-gray-400 hover:text-gray-600 transition-colors rounded-full hover:bg-slate-50 z-10"
         >
           <X className="h-5 w-5" />
         </button>
-        {children}
+        <div className="overflow-y-auto flex-1 min-h-0">
+          {children}
+        </div>
       </div>
     </div>,
     document.body
