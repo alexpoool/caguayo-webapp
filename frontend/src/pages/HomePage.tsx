@@ -4,7 +4,7 @@ export function HomePage() {
       <img
         src="/oficial.jpg"
         alt="Caguayo Home"
-        className="w-full h-full object-contain rounded-lg scale-55"
+        className="w-[85%] h-[85%] object-contain rounded-lg"
       />
     </div>
   );
